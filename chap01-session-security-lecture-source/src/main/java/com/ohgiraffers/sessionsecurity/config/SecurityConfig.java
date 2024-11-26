@@ -59,7 +59,7 @@ public class SecurityConfig {
     // 그 외 어떠한 요청들은 권한 상관없이 접근할 수 있음. (단, 로그인 된 인원에 한하여)
     auth.anyRequest().authenticated();
         }).formLogin(login -> {
-            login.loginPage("auth/login"); // 로그인 페이지 url을 기술
+            login.loginPage("/auth/login"); // 로그인 페이지 url을 기술
             // 사용자가 ID를 입력하는 필드(input 타입 name과 반드시 일치해야 함)
             login.usernameParameter("user"); // 여기에 form 태그의 name(id) 속성 입력
             // 사용자가 PWD를 입력하는 필드 (input 타입 name과 반드시 일치)
