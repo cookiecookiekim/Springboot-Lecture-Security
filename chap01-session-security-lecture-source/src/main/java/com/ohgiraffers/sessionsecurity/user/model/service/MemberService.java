@@ -1,6 +1,7 @@
 package com.ohgiraffers.sessionsecurity.user.model.service;
 
 import com.ohgiraffers.sessionsecurity.user.model.dao.UserMapper;
+import com.ohgiraffers.sessionsecurity.user.model.dto.LoginUserDTO;
 import com.ohgiraffers.sessionsecurity.user.model.dto.SignupDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -34,5 +35,16 @@ public class MemberService {
         int result = userMapper.regist(signupDTO);
 
         return result;
+    }
+
+    public LoginUserDTO findByUsername(String username) {
+        /* comment. 사용자의 ID를 전달받아 회원을 조회하는 메서드
+        *   username : 사용자의 ID*/
+        LoginUserDTO login = userMapper.findByUsername(username);
+        if (login == null) {
+            return null;
+        } else {
+            return login;
+        }
     }
 }

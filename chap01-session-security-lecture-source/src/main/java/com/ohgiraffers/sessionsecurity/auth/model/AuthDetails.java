@@ -63,9 +63,12 @@ public class AuthDetails implements UserDetails { // 노션에 필기한 거 대
          *       사용자의 권한 정보를 넣을 때 사용되는 메서드. */
         Collection<GrantedAuthority> authorities = new ArrayList<>();
 
-        loginUserDTO.getRole(); // getRole 생성
+        // getRole 생성 / 값이 여러개 들어있을 수 있음
+        // forEach 반복문으로, 데이터가 들은 role을 authorities에 담아주겠다.
+        loginUserDTO.getRole().forEach(role -> authorities.add(() -> role));
 
-        return List.of();
+        // 여러 권한을 담은 authorities 반환
+        return authorities;
     }
 
     @Override
@@ -73,7 +76,7 @@ public class AuthDetails implements UserDetails { // 노션에 필기한 거 대
         /* comment. 사용자의 비밀번호를 반환하는 메서드.
         *   UsernamePasswordAuthenticationToken과
         *   사용자의 비밀번호를 비교할 때 사용. */
-        return "";
+        return loginUserDTO.getPassword();
     }
 
     @Override
@@ -81,6 +84,6 @@ public class AuthDetails implements UserDetails { // 노션에 필기한 거 대
         /* comment. 사용자의 아이디를 반환하는 메서드.
         *   UsernamePasswordAuthenticationToken과
         *   사용자의 아이디를 비교할 때 사용. */
-        return "";
+        return loginUserDTO.getUserId();
     }
 }

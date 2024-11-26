@@ -15,7 +15,7 @@ import java.util.List;
 @ToString
 public class LoginUserDTO { // login.html 묶어줄 DTO 구성
     // login.html의 form 태그 name 속성 값인 user, pass만
-    // 작성하는줄 알았으나 모든 정보 기익
+    // 작성하는줄 알았으나 모든 정보 기억
 
     /* comment.
     *   로그인 시 사용할 DTO 클래스는 화면상에서 입력받는
