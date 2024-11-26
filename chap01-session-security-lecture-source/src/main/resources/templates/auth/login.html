@@ -7,7 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body>
-
+<body> <!-- 로그인 페이지 -->
+    <h1>로그인 폼</h1>
+    <form action="/auth/login" method="post">
+        아이디 : <input type="text" name="user"><br>
+        비밀번호 : <input type="password" name="pass"><br>
+        <button>로그인하기</button> <!-- 이 값을 묶기 위한 LoginUserDTO 생성-->
+    </form>
 </body>
 </html>
